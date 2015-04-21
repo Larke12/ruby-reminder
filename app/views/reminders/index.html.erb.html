@@ -1,0 +1,16 @@
+<h1>Reminders App</h1>
+
+<p><%= link_to "Add Reminder", new_reminder_path %></p>
+
+<% @reminders.each do |reminder| %>
+  <h2><%= link_to reminder.title, reminder %></h2>
+  <p><%= reminder.content %></p>
+    <p>
+      <%= link_to "Edit", edit_reminder_path(reminder) %>
+      <%= link_to "Complete", reminder, data: { confrim: "Points!" }, :method => :delete %>
+      Created <%= time_ago_in_words reminder.updated_at %> ago
+    </p>
+  <hr />
+<% end %>
+
+<!-- <a href="/notifications/create">Test Email [Dev]</a> -->
